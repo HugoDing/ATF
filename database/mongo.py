@@ -3,10 +3,13 @@
 
 """
 About database.mongo
-
+    This module contains all the APIs about MongoDB.
+     
 Description of classes
+    MongoDB:
 
 Description of methods
+    create_database: Create a Mongo database, also it's not necessary.
 
 """
 
@@ -26,7 +29,7 @@ __all__ = []
 
 import pymongo
 
-class MongoDB():
+class MongoDB(object):
     def __init__(self):
         self._db_host = "localhost"
         self._port = 27017

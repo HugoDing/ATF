@@ -3,7 +3,8 @@
 
 """
 About database.mysql
-
+    This module contains all the APIs about MySQL.
+    
 Description of classes
 
 Description of methods
@@ -25,3 +26,6 @@ __all__ = []
 # ------------------------------------------------------------------------------
 
 import mysql.connector
+
+class MySQL(object):
+    
