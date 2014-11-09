@@ -1,5 +1,4 @@
 # -*- coding=utf-8 -*-
-# Copyright (C), 2014, Spirent Communication
 
 """
 About database.mongo
@@ -33,7 +32,7 @@ class MongoDB(object):
     def __init__(self):
         self._db_host = "localhost"
         self._port = 27017
-    
+
     def create_database(self, db_name):
         client = pymongo.MongoClient(self._db_host, self._port)
         exec("client.%s" % db_name)
