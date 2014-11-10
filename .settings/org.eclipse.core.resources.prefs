@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
 encoding//database/mongo.py=utf-8
 encoding//database/mysql.py=utf-8
-encoding//wizard/selenium/base.py=utf-8
+encoding//object/selenium/velocity_login.py=utf-8
+encoding//wizard/selenium/velocity_base.py=utf-8

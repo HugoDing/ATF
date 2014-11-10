@@ -1,7 +1,7 @@
 # -*- coding=utf-8 -*-
 
 """
-About wizard.selenium.base
+About wizard.selenium.velocity_base
      
 Description of classes
     
@@ -23,8 +23,9 @@ __all__ = []
 # V0.1      2014-11-09   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
-from selenium import webdriver
+# from selenium import webdriver
 
+from object.selenium.velocity_login import LoginObject
 
 class BaseWizard(object):
     '''
