@@ -1,7 +1,7 @@
 # -*- coding=utf-8 -*-
 
 """
-About object.selenium.velocity_login
+About object.velocity_login
 
 Description of classes
 

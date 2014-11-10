@@ -25,7 +25,7 @@ __all__ = []
 
 # from selenium import webdriver
 
-from object.selenium.velocity_login import LoginObject
+from object.velocity_login import LoginObject
 
 class BaseWizard(object):
     '''
