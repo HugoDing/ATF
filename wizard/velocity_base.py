@@ -41,7 +41,7 @@ class BaseWizard(LoginObject):
 if __name__ == "__main__":
     driver = webdriver.Firefox()
     driver.get("http://create-demo.spirenteng.com:48083/")
-    bw = BaseWizard(driver)
+    bw = BaseWizard(driver) 
     bw.login_as("hding", "Della194310")
     sleep(10)
     driver.quit()
