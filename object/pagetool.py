@@ -23,6 +23,7 @@ __all__ = []
 # V0.1      2014-11-10   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
+
 class PageTool(object):
     
     def __init__(self, driver):
