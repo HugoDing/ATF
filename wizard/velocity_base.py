@@ -28,10 +28,11 @@ from time import sleep
 
 from object.velocity_login import LoginObject
 
+
 class BaseWizard(LoginObject):
-    '''
+    """
     @summary: All wizards' father class
-    '''
+    """
     
     def login_as(self, user_name=None, password=None):
         self.input_username.send_keys(user_name)
