@@ -33,12 +33,12 @@ class BaseWizard(LoginObject):
     """
     @summary: All wizards' father class
     """
-    
     def login_as(self, user_name=None, password=None):
         self.input_username.send_keys(user_name)
         self.input_password.send_keys(password)
         self.button_login.click()
-        
+
+
 if __name__ == "__main__":
     driver = webdriver.Firefox()
     driver.get("http://create-demo.spirenteng.com:48083/")

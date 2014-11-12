@@ -31,23 +31,20 @@ class LoginObject(PageTool):
         "input": {
             "username": "input[name='username']",
             "password": "input[name='password']",
-            },
+        },
         "button": {
             "login_button": "button.btn-default"
-            }
         }
-    
-    
+    }
+
     @property
     def input_username(self): 
         return self.find_element(self.element["input"]["username"])
-    
-    
+
     @property
     def input_password(self):
         return self.find_element(self.element["input"]["password"])
-    
-    
+
     @property
     def button_login(self):
         return self.find_element(self.element["button"]["login_button"])
