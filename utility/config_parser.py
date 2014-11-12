@@ -10,7 +10,7 @@ Description of methods
 """
 
 __authors__ = [
-	'"Hugo Ding" <huicong.ding@spirent.com>',
+    '"Hugo Ding" <huicong.ding@spirent.com>',
 ]
 
 __version__ = "V0.1"
@@ -29,9 +29,9 @@ from system_opration.file_system import get_ini_path
 
 
 def get_config(sector, item):
-	cf = ConfigParser.ConfigParser()
-	cf.read(get_ini_path())
-	return cf.get(sector, item)
+    cf = ConfigParser.ConfigParser()
+    cf.read(get_ini_path())
+    return cf.get(sector, item)
 
 if __name__ == "__main__":
-	print get_config("global", "host")
+    print get_config("global", "host")
