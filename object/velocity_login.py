@@ -36,7 +36,6 @@ class LoginObject(PageTool):
         "button": {
             "login_button": "button.btn-default"
         }
-<<<<<<< HEAD
     }
 
     @property
@@ -46,16 +45,6 @@ class LoginObject(PageTool):
     @property
     def input_password(self):
         return self.find_element(self.element["input"]["password"])
-=======
-
-    @property
-    def input_username(self): 
-        return self.find_element(self._element["input"]["username"])
-
-    @property
-    def input_password(self):
-        return self.find_element(self._element["input"]["password"])
->>>>>>> origin/master
 
     @property
     def button_login(self):
