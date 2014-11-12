@@ -14,7 +14,7 @@ Description of methods
 
 __authors__ = [
     '"Hugo Ding" <huicong.ding@spirent.com>',
-]
+	]
 
 __version__ = "V0.1"
 
@@ -27,6 +27,7 @@ __all__ = []
 # ------------------------------------------------------------------------------
 
 import pymongo
+
 
 class MongoDB(object):
     def __init__(self):

@@ -1,8 +1,8 @@
 # -*- coding=utf-8 -*-
 
 """
-About wizard.selenium.velocity_base
-     
+About this module
+
 Description of classes
     
 Description of methods
@@ -27,6 +27,7 @@ from selenium import webdriver
 from time import sleep
 
 from object.velocity_login import LoginObject
+from utility.config_parser import get_config
 
 
 class BaseWizard(LoginObject):
@@ -41,7 +42,8 @@ class BaseWizard(LoginObject):
 
 if __name__ == "__main__":
     driver = webdriver.Firefox()
-    driver.get("http://create-demo.spirenteng.com:48083/")
+    driver.get("%s:%s" % (
+        get_config("global", "host"), get_config("global", "port")))
     bw = BaseWizard(driver) 
     bw.login_as("hding", "Della194310")
     sleep(10)
