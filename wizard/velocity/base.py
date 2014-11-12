@@ -2,10 +2,15 @@
 
 """
 About this module
+    This module contains basic business logic of velocity.
 
 Description of classes
+    BaseWizard:
+        Almost all the other wizards inherit from this one.
     
 Description of methods
+    login_as:
+        Login to the system as someone.
 
 """
 
