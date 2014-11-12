@@ -1,6 +1,0 @@
-eclipse.preferences.version=1
-encoding//database/mongo.py=utf-8
-encoding//database/mysql.py=utf-8
-encoding//object/pagetool.py=utf-8
-encoding//object/velocity_login.py=utf-8
-encoding//wizard/velocity_base.py=utf-8
