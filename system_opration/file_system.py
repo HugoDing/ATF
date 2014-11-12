@@ -10,7 +10,7 @@ Description of methods
 """
 
 __authors__ = [
-	'"Hugo Ding" <huicong.ding@spirent.com>',
+    '"Hugo Ding" <huicong.ding@spirent.com>',
 ]
 
 __version__ = "V0.1"
@@ -28,17 +28,17 @@ import sys
 
 
 def _get_workspace_path():
-	cur_dir = os.path.dirname(__file__)
-	# print cur_path
-	workspace = os.path.join(cur_dir, os.path.pardir)  # Get father directory.
-	if os.path.isdir(workspace):
-		return workspace
-	else:
-		return False
+    cur_dir = os.path.dirname(__file__)
+    # print cur_path
+    workspace = os.path.join(cur_dir, os.path.pardir)  # Get father directory.
+    if os.path.isdir(workspace):
+        return workspace
+    else:
+        return False
 
 
 def get_ini_path():
-	return _get_workspace_path() + os.sep + "ATF.ini"
+    return _get_workspace_path() + os.sep + "ATF.ini"
 
 if __name__ == "__main__":
-	print get_ini_path()
+    print get_ini_path()

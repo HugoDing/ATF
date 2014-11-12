@@ -26,5 +26,6 @@ __all__ = []
 
 import mysql.connector
 
+
 class MySQL(object):
     pass

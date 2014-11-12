@@ -64,7 +64,8 @@ target/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -100,3 +101,4 @@ $RECYCLE.BIN/
 *.msp
 /.idea
 /.settings
+.*project

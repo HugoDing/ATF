@@ -14,7 +14,7 @@ Description of methods
 
 __authors__ = [
     '"Hugo Ding" <huicong.ding@spirent.com>',
-	]
+]
 
 __version__ = "V0.1"
 

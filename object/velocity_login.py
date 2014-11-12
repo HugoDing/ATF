@@ -27,8 +27,8 @@ from pagetool import PageTool
 
 
 class LoginObject(PageTool):
-    
-    _element = {
+
+    element = {
         "input": {
             "username": "input[name='username']",
             "password": "input[name='password']",
@@ -39,7 +39,7 @@ class LoginObject(PageTool):
     }
 
     @property
-    def input_username(self): 
+    def input_username(self):
         return self.find_element(self.element["input"]["username"])
 
     @property
