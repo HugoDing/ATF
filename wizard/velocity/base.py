@@ -23,10 +23,11 @@ __all__ = []
 # V0.1      2014-11-09   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
-from selenium import webdriver
 from time import sleep
 
-from object.velocity_login import LoginObject
+from selenium import webdriver
+
+from object.selenium.velocity_login import LoginObject
 from utility.config_parser import get_config
 
 

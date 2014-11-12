@@ -23,12 +23,12 @@ __all__ = []
 # V0.1      2014-11-10   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
-from pagetool import PageTool
+from object.selenium.pagetool import PageTool
 
 
 class LoginObject(PageTool):
 
-    element = {
+    _element = {
         "input": {
             "username": "input[name='username']",
             "password": "input[name='password']",
@@ -40,11 +40,11 @@ class LoginObject(PageTool):
 
     @property
     def input_username(self):
-        return self.find_element(self.element["input"]["username"])
+        return self.find_element(self._element["input"]["username"])
 
     @property
     def input_password(self):
-        return self.find_element(self.element["input"]["password"])
+        return self.find_element(self._element["input"]["password"])
 
     @property
     def button_login(self):
