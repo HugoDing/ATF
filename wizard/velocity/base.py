@@ -49,8 +49,8 @@ class BaseWizard(LoginObject):
 if __name__ == "__main__":
     driver = webdriver.Firefox()
     driver.get("%s:%s" % (
-        get_config("global", "host"), get_config("global", "port")))
+        get_config("dut", "host"), get_config("dut", "port")))
     bw = BaseWizard(driver) 
-    bw.login_as("hding", "Della194310")
+    bw.login_as("hding", "")
     sleep(10)
     driver.quit()

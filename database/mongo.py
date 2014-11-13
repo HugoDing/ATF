@@ -7,8 +7,9 @@ About database.mongo
 Description of classes
     MongoDB:
 
+
 Description of methods
-    create_database: Create a Mongo database, also it's not necessary.
+    create_database: Create a Mongo database, although it's not necessary.
 
 """
 
