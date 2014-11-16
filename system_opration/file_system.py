@@ -4,6 +4,7 @@
 About this module
 
 Description of classes
+    None
 
 Description of methods
 
@@ -24,6 +25,7 @@ __all__ = []
 # ------------------------------------------------------------------------------
 
 import os
+import platform
 import sys
 
 
@@ -39,6 +41,17 @@ def _get_workspace_path():
 
 def get_ini_path():
     return _get_workspace_path() + os.sep + "ATF.ini"
+
+
+def get_tmp_dir():
+    if platform.system() == "Windows":
+        dir_ = os.environ("TMP")
+    elif platform.system() == "Linux":
+        dir_ = "/tmp"
+
+    # return dir_ + os.sep + "ATF"
+    return 0
+
 
 if __name__ == "__main__":
     print get_ini_path()

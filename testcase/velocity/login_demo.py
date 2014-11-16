@@ -22,3 +22,16 @@ __all__ = []
 # ------------------------------------------------------------------------------
 # V0.1      2014-11-12   First version                                 Hugo
 # ------------------------------------------------------------------------------
+
+from testcase.base import SeleniumBaseTestCase
+
+
+class LoginDemo(SeleniumBaseTestCase):
+    def setUp(self):
+        super(LoginDemo, self).setUp()
+
+    def test_login(self):
+        pass
+
+    def tearDown(self):
+        super(LoginDemo, self).tearDown()

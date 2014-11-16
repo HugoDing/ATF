@@ -35,7 +35,6 @@ def get_config(sector, item):
     if is_got:
         return is_got
     else:
-        print "Begin to read configuration file..."
         cf = ConfigParser.ConfigParser()
         cf.read(get_ini_path())
         value = cf.get(sector, item)
