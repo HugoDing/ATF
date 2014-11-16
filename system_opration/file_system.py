@@ -2,12 +2,16 @@
 
 """
 About this module
+    All operations about file system will be putted here.
 
 Description of classes
     None
 
 Description of methods
-
+    get_ini_path:
+        Return the absolute path of ATF.ini file.
+    get_tmp_dir:
+        Return the temp directory of file system
 """
 
 __authors__ = [
@@ -48,7 +52,7 @@ def get_tmp_dir():
         dir_ = os.environ("TMP")
     elif platform.system() == "Linux":
         dir_ = "/tmp"
-
+    # TODO Mac OS temp folder
     # return dir_ + os.sep + "ATF"
     return 0
 

@@ -2,11 +2,8 @@
 
 """
 About this module
-    A demo of test case.
 
 Description of classes
-    LoginDemo:
-        Demo test case class for login.
 
 Description of methods
 
@@ -23,18 +20,11 @@ __all__ = []
 # ChangeLog:
 # Version   Date         Description                                   Author
 # ------------------------------------------------------------------------------
-# V0.1      2014-11-12   First version                                 Hugo
+# V0.1      2014-11-16   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
-from testcase.base import SeleniumBaseTestCase
+from object.selenium.pagetool import PageTool
 
 
-class LoginDemo(SeleniumBaseTestCase):
-    def setUp(self):
-        super(LoginDemo, self).setUp()
-
-    def test_login(self):
-        pass
-
-    def tearDown(self):
-        super(LoginDemo, self).tearDown()
+class BaseObject(PageTool):
+    pass

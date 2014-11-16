@@ -2,11 +2,18 @@
 
 """
 About this module
+    All the objects in the login page of Velocity Create
 
 Description of classes
+    LoginObject: SAA
 
 Description of methods
-
+    input_username:
+        User name input area, converted to property.
+    input_password:
+        Password input area, converted to property.
+    button_login:
+        Login button, converted to property.
 """
 
 __authors__ = [

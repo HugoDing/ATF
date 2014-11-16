@@ -2,10 +2,15 @@
 
 """
 About this module
+    Read and set the configuration files
 
 Description of classes
+    _StaticVariable:
+        Use class method to implement some static variables.
 
 Description of methods
+    get_config:
+        Get the value of configuration file using sector name and item name.
 
 """
 
@@ -66,4 +71,4 @@ class _StaticVariable(object):
 
 
 if __name__ == "__main__":
-    print get_config("global", "host")
+    print get_config("dut", "host")

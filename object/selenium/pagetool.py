@@ -1,11 +1,17 @@
 # -*- coding=utf-8 -*-
 
 """
-About object.pagetool
+About this module
+    This module could be used in almost all Selenium object modules.
 
 Description of classes
+    PageTool:
+        All the methods in this class is nothing to do with business, and can
+        be used by other object classes.
 
 Description of methods
+    find_element:
+        Return an element identified by CSS selector.
 
 """
 
