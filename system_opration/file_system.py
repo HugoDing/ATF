@@ -30,7 +30,6 @@ __all__ = []
 
 import os
 import platform
-import sys
 
 
 def _get_workspace_path():
@@ -49,7 +48,7 @@ def get_ini_path():
 
 def get_tmp_dir():
     if platform.system() == "Windows":
-        dir_ = os.environ("TMP")
+        dir_ = os.getenv("TMP")
     elif platform.system() == "Linux":
         dir_ = "/tmp"
     # TODO Mac OS temp folder
