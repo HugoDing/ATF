@@ -49,12 +49,15 @@ def get_ini_path():
 def get_tmp_dir():
     if platform.system() == "Windows":
         dir_ = os.getenv("TMP")
-    elif platform.system() == "Linux":
+    elif platform.system() in ("Linux", "Darwin"):
         dir_ = "/tmp"
-    # TODO Mac OS temp folder
-    # return dir_ + os.sep + "ATF"
-    return 0
+    else:
+        print "Simple debug: Temp folder is not gotten successfully!"
+        dir_ = None
+
+    # TODO: Create this folder if it is not existed.
+    # return dir_ + os.sep + "ATF" if dir_ else None
 
 
 if __name__ == "__main__":
-    print get_ini_path()
+    print get_tmp_dir()

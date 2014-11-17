@@ -29,6 +29,7 @@ __all__ = []
 # ------------------------------------------------------------------------------
 
 import logging
+import os
 
 from utility.config_parser import get_config
 from system_opration.file_system import get_tmp_dir
@@ -58,8 +59,9 @@ def print_log(log, level="info"):
     config_path = get_config("logging", "path")
     log_path = config_path if config_path else get_tmp_dir()
     if log_path:
-        fh = logging.FileHandler(log_path)
-        fh.setLevel(get_config("logging", "level"))
+        fh = logging.FileHandler(log_path + os.sep + "log.log")
+        # TODO: Log file name should be more intelligent.
+        fh.setLevel(int(get_config("logging", "level")))
         fh.setFormatter(formatter)
         logger.addHandler(fh)
 
