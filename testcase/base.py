@@ -40,10 +40,11 @@ class BaseTestCase(unittest.TestCase):
 
     def init_data(self):
         """
-        @summary: Initialize test data for each test case
-        @param : None
-        @return: Test data dictionary of the current test case
+        :summary: Initialize test data for each test case
+        :param : None
+        :return: Test data dictionary of the current test case
         """
+        project = str(self.__module__).split(".")[-2]
         module_name = str(self.__module__).split(".")[-1]
         test_case = str(self.__class__.__name__)
 
@@ -72,10 +73,10 @@ class BaseTestCase(unittest.TestCase):
 
     def drive_data(self):
         """
-        @summary: Decorator for data driven
-        @param:
+        :summary: Decorator for data driven
+        :param:
             f: function
-        @bug: If the decorated method has parameters, this function cannot
+        :bug: If the decorated method has parameters, this function cannot
             handle it for now.
         """
         def _call(f):

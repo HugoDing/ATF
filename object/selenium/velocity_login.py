@@ -30,10 +30,10 @@ __all__ = []
 # V0.1      2014-11-10   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
-from object.selenium.pagetool import PageTool
+from object.selenium.velocity_base import BaseObject
 
 
-class LoginObject(PageTool):
+class LoginObject(BaseObject):
 
     _element = {
         "input": {
