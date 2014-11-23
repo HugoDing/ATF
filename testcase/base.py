@@ -29,8 +29,8 @@ import os
 from selenium import webdriver
 
 from logging_report.logging_ import print_log
-
 from utility.config_parser import get_config
+from database.mongo import MongoDB
 
 
 class BaseTestCase(unittest.TestCase):
@@ -47,8 +47,10 @@ class BaseTestCase(unittest.TestCase):
         project = str(self.__module__).split(".")[-2]
         module_name = str(self.__module__).split(".")[-1]
         test_case = str(self.__class__.__name__)
-
-        # TODO Get test data from MongoDB
+        mongo = MongoDB()
+        return mongo.find_data(
+            project=project, module=module_name, case=test_case
+        )
 
     def tearDown(self):
         pass

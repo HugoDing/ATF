@@ -25,6 +25,8 @@ __all__ = ["MongoDB"]
 # Version   Date         Description                                   Author
 # ------------------------------------------------------------------------------
 # V0.1      2014-10-31   First version                                 Hugo
+# V0.2      2014-11-23   Add methods to post and get testcase
+#                        data from MongoDB.                            Hugo
 # ------------------------------------------------------------------------------
 
 import copy
@@ -33,6 +35,7 @@ import pymongo
 
 from utility.config_parser import get_config
 from data.template import testcase_template
+from logging_report.logging_ import print_log
 
 
 class MongoDB(object):
@@ -66,10 +69,59 @@ class MongoDB(object):
             self, type_="testcase",
             project="velocity", module=None, case=None, description=None,
             data_driven=False, data=None):
+        """
+        :summary: Post data to MongoDB.
+        :param type_: The type of data, could be testcase or suite
+        :param project: Project name
+        :param module: Module name or component name
+        :param case: Name of testcase
+        :param description: Description of this data
+        :param data_driven: Use data driven or not
+        :param data: Real test data
+        :return: The Object ID of this data in MongoDB
+        """
+        if self.find_data(type_, project, module, case):
+            print_log("The data of testcase %s has already existed." % module)
+            return -1
+
+        if type_ == "testcase":
+            collection = self._get_collection(type_)
+            testcase = copy.deepcopy(testcase_template)
+
+            if project != "velocity":
+                testcase["project"] = project
+            testcase["module"] = module
+            testcase["case"] = case
+            testcase["description"] = description
+            testcase["data_driven"] = data_driven
+            testcase["data"] = data
+
+            return collection.insert(testcase)
+
+    def find_data(
+            self, type_="testcase",
+            project="velocity", module=None, case=None):
         collection = self._get_collection(type_)
-        testcase = copy.deepcopy(testcase_template)
-        
+
+        data = collection.find_one(
+            {"project": project, "module": module, "case": case}
+        )
+
+        if data:
+            print_log(
+                "The data of testcase %s has been found." % case,
+                "debug"
+            )
+            return data["data"]
+        else:
+            print_log(
+                "The data of testcase %s.%s hasn't been found!"
+                % (module, case),
+                "warn"
+            )
+            return False
+
 
 if __name__ == "__main__":
     mg = MongoDB()
-    print mg._get_collection("testcase")
+    print mg.find_data(module=1, case=2)
