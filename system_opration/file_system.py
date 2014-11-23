@@ -55,8 +55,13 @@ def get_tmp_dir():
         print "Simple debug: Temp folder is not gotten successfully!"
         dir_ = None
 
-    # TODO: Create this folder if it is not existed.
-    # return dir_ + os.sep + "ATF" if dir_ else None
+    if dir_:
+        log_dir = dir_ + os.sep + "ATF"
+        if not os.path.isdir(log_dir):
+            os.mkdir(log_dir)
+        # return log_dir
+    else:
+        return False
 
 
 if __name__ == "__main__":
