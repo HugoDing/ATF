@@ -10,6 +10,9 @@ Description of classes
 
 Description of methods
     _get_database: Get a Mongo database
+    _get_collection: Get a Mongo database collection
+    post_data: Post JSON data to MongoDB
+    find_data: Find data from MongoDB
 
 """
 
@@ -17,7 +20,7 @@ __authors__ = [
     '"Hugo Ding" <huicong.ding@spirent.com>',
 ]
 
-__version__ = "V0.1"
+__version__ = "V0.2"
 
 __all__ = ["MongoDB"]
 

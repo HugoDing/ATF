@@ -27,6 +27,7 @@ import unittest
 import os
 
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchWindowException
 
 from logging_report.logging_ import print_log
 from utility.config_parser import get_config
@@ -121,8 +122,8 @@ class SeleniumBaseTestCase(BaseTestCase):
         else:
             print_log("The browser is not supported! "
                       "Please check your AFT.ini!", "error")
-            raise Exception
-            # TODO Define an exception for browser error.
+            raise NoSuchWindowException("The browser you set is not supported, "
+                                        "please check your config file.")
 
         self.driver.maximize_window()
         self.driver.implicitly_wait(5)
