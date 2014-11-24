@@ -35,5 +35,8 @@ class PageTool(object):
     def __init__(self, driver):
         self.driver = driver
         
-    def find_element(self, css_selector):
-        return self.driver.find_element_by_css_selector(css_selector)
+    def find_element(self, value, locator=None):
+        if not locator:
+            return self.driver.find_element_by_css_selector(value)
+        else:
+            return self.driver.find_element(by=locator, value=value)

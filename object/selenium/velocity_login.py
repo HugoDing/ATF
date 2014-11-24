@@ -31,6 +31,7 @@ __all__ = []
 # ------------------------------------------------------------------------------
 
 from object.selenium.velocity_base import BaseObject
+from selenium.webdriver.common.by import By
 
 
 class LoginObject(BaseObject):
@@ -41,7 +42,7 @@ class LoginObject(BaseObject):
             "password": "input[name='password']",
         },
         "button": {
-            "login_button": "button.btn-default"
+            "login_button": ("button.btn-default", By.CSS_SELECTOR)
         }
     }
 
