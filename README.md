@@ -1,4 +1,4 @@
 ATF
 ===
 
-Automatic Test Framwork
+Automatic Test Framework
