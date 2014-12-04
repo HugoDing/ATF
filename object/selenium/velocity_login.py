@@ -36,24 +36,28 @@ from selenium.webdriver.common.by import By
 
 class LoginObject(BaseObject):
 
-    _element = {
+    _lo_element = {
         "input": {
             "username": "input[name='username']",
             "password": "input[name='password']",
         },
+
         "button": {
-            "login_button": ("button.btn-default", By.CSS_SELECTOR)
+            "login_button": "div#login-button>button",
+        },
+
+        "link": {
         }
     }
 
     @property
     def input_username(self):
-        return self.find_element(self._element["input"]["username"])
+        return self.find_element(self._lo_element["input"]["username"])
 
     @property
     def input_password(self):
-        return self.find_element(self._element["input"]["password"])
+        return self.find_element(self._lo_element["input"]["password"])
 
     @property
     def button_login(self):
-        return self.find_element(self._element["button"]["login_button"])
+        return self.find_element(self._lo_element["button"]["login_button"])

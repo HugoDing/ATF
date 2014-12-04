@@ -45,12 +45,16 @@ class BaseWizard(LoginObject):
         self.input_password.send_keys(password)
         self.button_login.click()
 
+    def logout(self):
+        self.button_user_profile.click()
+        self.link_logout.click()
+
 
 if __name__ == "__main__":
     driver = webdriver.Firefox()
-    driver.get("%s:%s" % (
-        get_config("dut", "host"), get_config("dut", "port")))
+    driver.get("%s" % get_config("dut", "host"))
     bw = BaseWizard(driver) 
-    bw.login_as("hding", "")
+    bw.login_as("spirent", "spirent")
+    bw.logout()
     sleep(10)
     driver.quit()
