@@ -52,6 +52,7 @@ class BaseWizard(LoginObject):
 
 if __name__ == "__main__":
     driver = webdriver.Firefox()
+    driver.implicitly_wait(5)
     driver.get("%s" % get_config("dut", "host"))
     bw = BaseWizard(driver) 
     bw.login_as("spirent", "spirent")
