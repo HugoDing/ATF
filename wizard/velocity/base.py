@@ -49,6 +49,10 @@ class BaseWizard(LoginObject):
         self.button_user_profile.click()
         self.link_logout.click()
 
+    def is_logout(self):
+        pass
+        #TODO:
+
 
 if __name__ == "__main__":
     driver = webdriver.Firefox()
