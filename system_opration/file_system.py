@@ -56,9 +56,9 @@ def get_tmp_dir():
         dir_ = None
 
     if dir_:
-        log_dir = dir_ + os.sep + "ATF"
-        if not os.path.isdir(log_dir):
-            os.mkdir(log_dir)
+        tmp_dir = dir_ + os.sep + "ATF"
+        if not os.path.isdir(tmp_dir):
+            os.mkdir(tmp_dir)
         # return log_dir
     else:
         return False
