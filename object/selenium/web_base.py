@@ -39,7 +39,7 @@ class BaseObject(PageTool):
         },
 
         "link": {
-            "logout": {"value": "a.logout", "locator": By.CSS_SELECTOR},
+            "logout": {"value": "退出", "locator": By.LINK_TEXT},
         }
     }
 

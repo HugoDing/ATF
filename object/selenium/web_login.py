@@ -30,7 +30,7 @@ __all__ = []
 # V0.1      2014-11-10   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
-from object.selenium.velocity_base import BaseObject
+from object.selenium.web_base import BaseObject
 from selenium.webdriver.common.by import By
 
 
@@ -43,7 +43,7 @@ class LoginObject(BaseObject):
         },
 
         "button": {
-            "login_button": "div#login-button>button",
+            "login_button": {"value": "loginBtn", "locator": By.ID}
         },
 
         "link": {
@@ -60,4 +60,4 @@ class LoginObject(BaseObject):
 
     @property
     def button_login(self):
-        return self.find_element(self._lo_element["button"]["login_button"])
+        return self.find_element(**self._lo_element["button"]["login_button"])

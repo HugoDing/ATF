@@ -32,6 +32,7 @@ from selenium.common.exceptions import NoSuchWindowException
 from logging_report.logging_ import print_log
 from utility.config_parser import get_config
 from database.mongo import MongoDB
+from wizard.web.base import BaseWizard
 
 
 class BaseTestCase(unittest.TestCase):
@@ -130,7 +131,7 @@ class SeleniumBaseTestCase(BaseTestCase):
         self.driver.get(host + ":" + port)
 
     def tearDown(self):
-        #TODO: Method to logout the system.
+        BaseWizard().logout()
         self.driver.quit()
 
 

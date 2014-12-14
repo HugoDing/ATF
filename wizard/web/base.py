@@ -32,8 +32,9 @@ from time import sleep
 
 from selenium import webdriver
 
-from object.selenium.velocity_login import LoginObject
+from object.selenium.web_login import LoginObject
 from utility.config_parser import get_config
+from logging_report.logging_ import print_log
 
 
 class BaseWizard(LoginObject):
@@ -46,20 +47,27 @@ class BaseWizard(LoginObject):
         self.button_login.click()
 
     def logout(self):
-        self.button_user_profile.click()
-        self.link_logout.click()
+        if not self.is_logout():
+            self.link_logout.click()
+            return self.is_logout()
+        else:
+            print_log("No need, you are already logging out.")
 
     def is_logout(self):
-        pass
-        #TODO:
+        if "logout" in self.driver.current_url.lower():
+            print_log("Logout successfully!")
+            return True
+        else:
+            print_log("You are still in the system!", "warning")
+            return False
 
 
 if __name__ == "__main__":
     driver = webdriver.Firefox()
-    driver.implicitly_wait(5)
-    driver.get("%s" % get_config("dut", "host"))
+    driver.implicitly_wait(30)
+    driver.get("%s" % get_config("selenium", "host"))
     bw = BaseWizard(driver) 
-    bw.login_as("spirent", "spirent")
+    bw.login_as("atf_test", "itestQA")
     bw.logout()
     sleep(10)
     driver.quit()
