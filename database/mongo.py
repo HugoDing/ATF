@@ -127,4 +127,4 @@ class MongoDB(object):
 
 if __name__ == "__main__":
     mg = MongoDB()
-    print mg.find_data(module=1, case=2)
+    print mg.post_data(project='web', module='longin_demo', case='')

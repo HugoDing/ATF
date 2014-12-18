@@ -72,4 +72,5 @@ class _StaticVariable(object):
 
 
 if __name__ == "__main__":
-    print get_config("dut", "host")
+    print get_config("selenium", "host")
+    print get_config("selenium", "host")

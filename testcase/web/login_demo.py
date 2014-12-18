@@ -27,14 +27,21 @@ __all__ = []
 # ------------------------------------------------------------------------------
 
 from testcase.base import SeleniumBaseTestCase
+from wizard.web.base import BaseWizard
 
 
 class LoginDemo(SeleniumBaseTestCase):
     def setUp(self):
         super(LoginDemo, self).setUp()
 
+    @SeleniumBaseTestCase.drive_data
     def test_login(self):
-        pass
+        def do_test():
+            bw = BaseWizard()
+            bw.login_as()
+            pass
+
+        do_test()
 
     def tearDown(self):
         super(LoginDemo, self).tearDown()

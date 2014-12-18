@@ -85,14 +85,10 @@ class BaseTestCase(unittest.TestCase):
         """
         def _call(f):
             def __call():
-                # return_ = []
-                dict_data = self.init_data()
-                for key in dict_data['case']['datadrive']:
-                    if key != 'value':
-                        data = dict_data['case']['datadrive'][key]
-                        return_ = f(data)
-                        # return_.append(f(data))
-
+                data = self.init_data()
+                for key in data['case']['datadrive']:
+                    data = data['case']['datadrive'][key]
+                    return_ = f(data)
                 return return_
             return __call
         return _call
