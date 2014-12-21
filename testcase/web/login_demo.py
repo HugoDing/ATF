@@ -48,11 +48,11 @@ class InvalidLogin(SeleniumBaseTestCase):
     def setUp(self):
         super(InvalidLogin, self).setUp()
 
-    @SeleniumBaseTestCase.drive_data
     def test_invalid_login(self):
-        dict_data = self.init_data()
+        # dict_data = self.init_data()
 
-        def do_test():
+        @SeleniumBaseTestCase.drive_data(self)
+        def do_test(data):
             bw = BaseWizard(self.driver)
             bw.login_as()
             pass

@@ -58,7 +58,7 @@ class BaseWizard(LoginObject):
             print_log("Logout successfully!")
             return True
         else:
-            print_log("You are still in the system!", "warning")
+            print_log("You are still in the system!", "debug")
             return False
 
 

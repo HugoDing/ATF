@@ -27,6 +27,7 @@ import os
 
 from copy import deepcopy
 from utility.HTMLTestRunner import HTMLTestRunner
+from unittest import TestSuite, TestLoader
 
 from utility.config_parser import get_config
 from logging_report.logging_ import print_log
@@ -56,8 +57,11 @@ def execute_test(test_suite):
     runner.run(test_suite)
 
 if __name__ == "__main__":
-    suite = [
-        u"testcase.web.login_demo.ValidLogin",
-        u"testcase.web.login_demo.ValidLogin"
+    test_cases = [
+        "testcase.web.login_demo.ValidLogin"
     ]
+    suite = TestSuite()
+    loader = TestLoader()
+    tests = loader.loadTestsFromNames(test_cases)
+    suite.addTests(tests)
     execute_test(suite)

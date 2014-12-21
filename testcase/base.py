@@ -96,9 +96,9 @@ class BaseTestCase(unittest.TestCase):
 
 class SeleniumBaseTestCase(BaseTestCase):
     def setUp(self):
-        host = get_config("dut", "host")
-        port = get_config("dut", "port")
-        browser = get_config("dut", "browser").lower()
+        host = get_config("selenium", "host")
+        port = get_config("selenium", "port")
+        browser = get_config("selenium", "browser").lower()
         if browser == "firefox":
             # Set profile of Firefox
             profile = webdriver.FirefoxProfile()
@@ -123,11 +123,17 @@ class SeleniumBaseTestCase(BaseTestCase):
                                         "please check your config file.")
 
         self.driver.maximize_window()
-        self.driver.implicitly_wait(5)
-        self.driver.get(host + ":" + port)
+        self.driver.implicitly_wait(
+            get_config("selenium", "implicitly_wait_time")
+        )
+        if port:
+            self.driver.get(host + ":" + port)
+        else:
+            print_log("No port is specified.", "debug")
+            self.driver.get(host)
 
     def tearDown(self):
-        BaseWizard().logout()
+        BaseWizard(self.driver).logout()
         self.driver.quit()
 
 

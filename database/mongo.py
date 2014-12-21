@@ -127,10 +127,4 @@ class MongoDB(object):
 
 if __name__ == "__main__":
     mg = MongoDB()
-    print mg.post_data(project='web', module='longin_demo', case='InvalidLogin',
-                       data_driven=True,
-                       data={
-        "login_name": ["wrong_user_name", "atf_test", "atf_test"],
-        "password": ["itestQA", "wrong_password", ""],
-        "expected_result": [""]
-    })
+    print mg.find_data(module="login_demo", case="ValidLogin")
