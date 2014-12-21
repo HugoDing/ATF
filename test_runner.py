@@ -2,10 +2,13 @@
 
 """
 About this module
+    All tests will start from this module.
 
 Description of classes
+    None
 
 Description of methods
+    execute_test: Execute the test cases in the test_suite.
 
 """
 

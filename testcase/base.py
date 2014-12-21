@@ -2,15 +2,26 @@
 
 """
 About this module
+    All kinds of base test cases will be located here, such as Selenium,
+Appium, Sikuli and pywinauto.
 
 Description of classes
+    BaseTestCase: All test cases should inherit from this class.
+    SeleniumBaseTestCase: All Selenium test cases should inherit from this class
 
 Description of methods
+    setUP: Things to do before running your test scripts.
+    tearDown: Things to do after running your test scripts.
+    init_data: Get test data from database(default is MongoDB).
+    set_test_result: Set the result to be Pass or Fail.
+    fail_test: Set the result of one test case to be Fail.
+    drive_data: A decorator to run one test couple of times to implement the
+data driven test.
 
 """
 
 __authors__ = [
-    '"Hugo Ding" <huicong.ding@spirent.com>',
+    '"Hugo Ding" <dinghuicong@gmail.com>',
 ]
 
 __version__ = "V0.1"

@@ -15,7 +15,7 @@ Description of methods
 """
 
 __authors__ = [
-    '"Hugo Ding" <huicong.ding@spirent.com>',
+    '"Hugo Ding" <dinghuicong@gmail.com>',
 ]
 
 __version__ = "V0.1"
@@ -40,7 +40,7 @@ def get_config(sector, item):
     if is_got:
         return is_got
     else:
-        print "Simple debug: Start to parser %s.%s..." % (sector, item)
+        # print "Simple debug: Start to parser %s.%s..." % (sector, item)
         cf = ConfigParser.ConfigParser()
         cf.read(get_ini_path())
         value = cf.get(sector, item)

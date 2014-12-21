@@ -13,7 +13,7 @@ Description of methods
 """
 
 __authors__ = [
-    '"Hugo Ding" <huicong.ding@spirent.com>',
+    '"Hugo Ding" <dinghuicong@gmail.com>',
 ]
 
 __version__ = "V0.1"
@@ -28,6 +28,7 @@ __all__ = []
 
 from testcase.base import SeleniumBaseTestCase
 from wizard.web.base import BaseWizard
+from logging_report.logging_ import print_log
 
 
 class ValidLogin(SeleniumBaseTestCase):
@@ -37,6 +38,7 @@ class ValidLogin(SeleniumBaseTestCase):
     def test_valid_login(self):
         dict_data = self.init_data()
         bw = BaseWizard(self.driver)
+        print_log("Starting to login to the system.")
         bw.login_as(dict_data["login_name"], dict_data["password"])
         self.assertIs(bw.is_logout(), False)
 
