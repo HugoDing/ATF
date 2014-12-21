@@ -103,7 +103,7 @@ class MongoDB(object):
 
     def find_data(
             self, type_="testcase",
-            project="velocity", module=None, case=None):
+            project="web", module=None, case=None):
         collection = self._get_collection(type_)
 
         data = collection.find_one(
@@ -127,4 +127,10 @@ class MongoDB(object):
 
 if __name__ == "__main__":
     mg = MongoDB()
-    print mg.post_data(project='web', module='longin_demo', case='')
+    print mg.post_data(project='web', module='longin_demo', case='InvalidLogin',
+                       data_driven=True,
+                       data={
+        "login_name": ["wrong_user_name", "atf_test", "atf_test"],
+        "password": ["itestQA", "wrong_password", ""],
+        "expected_result": [""]
+    })

@@ -30,18 +30,34 @@ from testcase.base import SeleniumBaseTestCase
 from wizard.web.base import BaseWizard
 
 
-class LoginDemo(SeleniumBaseTestCase):
+class ValidLogin(SeleniumBaseTestCase):
     def setUp(self):
-        super(LoginDemo, self).setUp()
+        super(ValidLogin, self).setUp()
+
+    def test_valid_login(self):
+        dict_data = self.init_data()
+        bw = BaseWizard(self.driver)
+        bw.login_as(dict_data["login_name"], dict_data["password"])
+        self.assertIs(bw.is_logout(), False)
+
+    def tearDown(self):
+        super(ValidLogin, self).tearDown()
+
+
+class InvalidLogin(SeleniumBaseTestCase):
+    def setUp(self):
+        super(InvalidLogin, self).setUp()
 
     @SeleniumBaseTestCase.drive_data
-    def test_login(self):
+    def test_invalid_login(self):
+        dict_data = self.init_data()
+
         def do_test():
-            bw = BaseWizard()
+            bw = BaseWizard(self.driver)
             bw.login_as()
             pass
 
         do_test()
 
     def tearDown(self):
-        super(LoginDemo, self).tearDown()
+        super(InvalidLogin, self).tearDown()

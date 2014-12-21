@@ -28,14 +28,26 @@ __all__ = [
 # If you want to use data driven, "data" should be like this,
 # "data": {"key": [value1, value2, value3]}
 testcase_template = {
-    "project": "velocity",
+    "project": "web",
     "module": "login_demo",
-    "case": "LoginDemo",
+    "case": "ValidLogin",
     "description": None,
     "data_driven": False,
     "data": {
-        "login_name": "",
-        "password": "",
-        "message": ""
+        "login_name": "atf_test",
+        "password": "itestQA",
+    }
+}
+
+testcase_data_driven_template = {
+    "project": "web",
+    "module": "login_demo",
+    "case": "InvalidLogin",
+    "description": None,
+    "data_driven": True,
+    "data": {
+        "login_name": ["wrong_user_name", "atf_test", "atf_test"],
+        "password": ["itestQA", "wrong_password", ""],
+        "expected_result": [""]
     }
 }
