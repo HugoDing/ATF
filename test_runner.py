@@ -26,11 +26,8 @@ __all__ = []
 # V0.1      2014-12-21   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
-import os
-
-from copy import deepcopy
-from utility.HTMLTestRunner import HTMLTestRunner
 from unittest import TestSuite, TestLoader
+from logging_report.HTMLTestRunner import HTMLTestRunner
 
 from utility.config_parser import get_config
 from logging_report.logging_ import print_log
@@ -53,7 +50,7 @@ def execute_test(test_suite):
         title=u"Automation test report",
         description=(
             u"Automation test report\n"
-            u'Execution type is %s' % exec_type
+            u"Execution type is %s" % exec_type
         )
     )
 
