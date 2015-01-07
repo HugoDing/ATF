@@ -66,5 +66,5 @@ if __name__ == "__main__":
     loader = TestLoader()
     tests = loader.loadTestsFromNames(test_cases)
     suite.addTests(tests)
-    unittest.TextTestRunner(verbosity=2).run(suite)
-    #execute_test(suite)
+    # unittest.TextTestRunner(verbosity=2).run(suite)
+    execute_test(suite)
