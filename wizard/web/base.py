@@ -54,12 +54,7 @@ class BaseWizard(LoginObject):
             print_log("No need, you are already logging out.")
 
     def is_logout(self):
-        if "logout" in self.driver.current_url.lower():
-            print_log("Logout successfully!")
-            return True
-        else:
-            print_log("You are still in the system!", "debug")
-            return False
+        return True
 
 
 if __name__ == "__main__":
