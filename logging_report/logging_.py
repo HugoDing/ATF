@@ -63,15 +63,18 @@ def print_log(log, level="info"):
         # TODO: Log file name should be more intelligent.
         fh.setLevel(int(get_config("logging", "level")))
         fh.setFormatter(formatter)
-        logger.addHandler(fh)
+        if "FileHandler" not in str(logger.handlers):
+            logger.addHandler(fh)
 
     ch = logging.StreamHandler()
     ch.setLevel(logging.DEBUG)
     ch.setFormatter(formatter)
-    logger.addHandler(ch)
+    if "StreamHandler" not in str(logger.handlers):
+        logger.addHandler(ch)
 
     logger.log(_get_num_level(level), log)
 
 
 if __name__ == "__main__":
+    print_log('foo bar')
     print_log('foo bar')
