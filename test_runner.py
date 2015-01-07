@@ -26,6 +26,8 @@ __all__ = []
 # V0.1      2014-12-21   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
+import unittest
+
 from unittest import TestSuite, TestLoader
 from logging_report.HTMLTestRunner import HTMLTestRunner
 
@@ -64,4 +66,5 @@ if __name__ == "__main__":
     loader = TestLoader()
     tests = loader.loadTestsFromNames(test_cases)
     suite.addTests(tests)
-    execute_test(suite)
+    unittest.TextTestRunner(verbosity=2).run(suite)
+    #execute_test(suite)
