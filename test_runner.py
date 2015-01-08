@@ -26,19 +26,23 @@ __all__ = []
 # V0.1      2014-12-21   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
-import unittest
+import sys
 
-from unittest import TestSuite, TestLoader
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 from logging_report.HTMLTestRunner import HTMLTestRunner
 
 from utility.config_parser import get_config
 from logging_report.logging_ import print_log
+from utility.test_suite import get_test_suite, get_testcase
+from system_opration.command_line import get_opt
 
 
 def execute_test(test_suite):
     """
-    @summary: Execute test cases.
-    @param test_suite: Test suite.
+    :summary: Execute test cases.
+    :param test_suite: Test suite.
     """
 
     exec_type = get_config("run-time", "mode")
@@ -59,12 +63,12 @@ def execute_test(test_suite):
     runner.run(test_suite)
 
 if __name__ == "__main__":
+    cmd_mode = get_opt().get("mode")
+    mode = cmd_mode if cmd_mode else get_config("run-time", "mode")
+    test_cases = get_testcase(mode)
     test_cases = [
         "testcase.web.login_demo.ValidLogin"
     ]
-    suite = TestSuite()
-    loader = TestLoader()
-    tests = loader.loadTestsFromNames(test_cases)
-    suite.addTests(tests)
+    suite = get_test_suite(test_cases)
     # unittest.TextTestRunner(verbosity=2).run(suite)
     execute_test(suite)

@@ -124,6 +124,12 @@ class MongoDB(object):
             )
             return False
 
+    def get_testcases_from_mongo(self, type_):
+        collection = self._get_collection("testsuite")
+        return collection.find_one(
+            {"type": type_}
+        )
+
 
 if __name__ == "__main__":
     mg = MongoDB()

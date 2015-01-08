@@ -35,7 +35,6 @@ __all__ = []
 # ------------------------------------------------------------------------------
 
 import unittest
-import os
 
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchWindowException

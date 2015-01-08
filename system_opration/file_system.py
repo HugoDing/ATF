@@ -64,5 +64,9 @@ def get_tmp_dir():
         return False
 
 
+def get_testcase_dir():
+    return _get_workspace_path() + os.sep + "testcase"
+
+
 if __name__ == "__main__":
     print get_tmp_dir()

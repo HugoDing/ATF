@@ -51,3 +51,8 @@ testcase_data_driven_template = {
         "expected_result": [""]
     }
 }
+
+testsuite_template = {
+    "type": "smoke",
+    "cases": []
+}
