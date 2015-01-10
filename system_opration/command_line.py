@@ -2,10 +2,13 @@
 
 """
 About this module
+    Methods about command line should be putted here.
 
 Description of classes
+    None
 
 Description of methods
+    get_opt: Get options from command line.
 
 """
 
@@ -35,7 +38,7 @@ def get_opt():
             sys.argv[1:], "hm:", ["help", "mode="]
         )
     except getopt.GetoptError:
-        print_log("No command line options are specified.", "debug")
+        print_log("Critical error, please contact the administrator!", "error")
         return None
     else:
         return_value = {}
@@ -48,14 +51,18 @@ def get_opt():
         if return_value:
             return return_value
         else:
-            print_log("The options you specified are not supported!", "error")
-            usage()
-            sys.exit(-1)
+            print_log("No valuable command line option is specified!",
+                      "warning")
+            return {}
 
 
 def usage():
-    print "-h, --help: Show this help document."
-    print "-m=run_mode, --mode=run_mode: Run mode, these modes are supported:" \
-          "    all: Run all testcases under 'testcase' folder" \
-          "    config: Run testcases read from DB" \
-          "    smoke: Run smoke testcases"
+    print (
+        "Usage:\n"
+        "--------------------------------------------------------------------\n"
+        "-h, --help: Show this help document.\n"
+        "-m=run_mode, --mode=run_mode: Run mode, these modes are supported:\n"
+        "    all: Run all testcases under 'testcase' folder\n"
+        "    config: Run testcases read from DB\n"
+        "    smoke: Run smoke testcases"
+    )
