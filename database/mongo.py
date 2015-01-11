@@ -125,8 +125,13 @@ class MongoDB(object):
             return False
 
     def get_testcases_from_mongo(self, type_):
+        testcases = []
         collection = self._get_collection("testsuite.%s" % type_)
-        return dict(collection.find({"case": 1}))
+        cur = collection.find({})
+        for i in cur:
+            testcases.append(i["case"])
+        print_log("The testcases are %s" % str(testcases), "debug")
+        return testcases
 
     def add_testcase_to_suite(self, type_, id, case, summary):
         collection = self._get_collection("testsuite.%s" % type_)

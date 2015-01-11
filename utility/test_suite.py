@@ -43,7 +43,7 @@ def get_testcase(mode="smoke"):
     mode_lower = mode.lower()
     if mode_lower in ("smoke", "config", "demo"):
         mongo = MongoDB()
-        everything = mongo.get_testcases_from_mongo(mode_lower)
+        return mongo.get_testcases_from_mongo(mode_lower)
 
     elif mode == "all":
         global test_cases

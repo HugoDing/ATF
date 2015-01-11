@@ -68,7 +68,8 @@ if __name__ == "__main__":
     mode = cmd_mode if cmd_mode else get_config("run-time", "mode")
     test_cases = get_testcase(mode)
     # test_cases = [
-    #     "testcase.web.login_demo.ValidLogin"
+    #     "testcase.web.login_demo.ValidLogin",
+    #     "testcase.web.login_demo.ValidLogin",
     # ]
     suite = get_test_suite(test_cases)
     # unittest.TextTestRunner(verbosity=2).run(suite)

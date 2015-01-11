@@ -41,7 +41,7 @@ def get_current_date():
 
 
 def get_current_time():
-    return time.strftime('%H:%m:%S', time.localtime(time.time()))
+    return time.strftime('%H%m%S', time.localtime(time.time()))
 
 
 if __name__ == '__main__':
