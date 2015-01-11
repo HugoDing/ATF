@@ -31,7 +31,7 @@ def timer(f):
         start = time.time()
         result_ = f(*args, **kwargs)
         end = time.time()
-        print("Function '%s' took %f second(s)." % (f.__name__, end-start))
+        print(("Function '%s' took %f second(s)." % (f.__name__, end-start)))
         return result_
     return f_timer
 
@@ -41,12 +41,12 @@ def get_current_date():
 
 
 def get_current_time():
-    return time.strftime('%H%m%S', time.localtime(time.time()))
+    return time.strftime('%H%M%S', time.localtime(time.time()))
 
 
 if __name__ == '__main__':
     def get_number():
-        for x in xrange(5000000):
+        for x in range(5000000):
             yield x
 
     @timer
@@ -58,4 +58,4 @@ if __name__ == '__main__':
 
     result = expensive_function()
 
-    print get_current_date(), get_current_time()
+    print(get_current_date(), get_current_time())

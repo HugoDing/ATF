@@ -54,7 +54,7 @@ def get_tmp_dir():
     elif platform.system() in ("Linux", "Darwin"):
         dir_ = "/tmp"
     else:
-        print "Simple debug: Temp folder is not gotten successfully!"
+        print("Simple debug: Temp folder is not gotten successfully!")
         dir_ = None
 
     if dir_:
@@ -90,4 +90,4 @@ def get_testcase_dir():
 
 
 if __name__ == "__main__":
-    print get_tmp_dir()
+    print(get_tmp_dir())

@@ -30,7 +30,7 @@ __all__ = []
 #                            once during one run                       Hugo
 # ------------------------------------------------------------------------------
 
-import ConfigParser
+import configparser
 
 from system_opration.file_system import get_ini_path
 
@@ -41,7 +41,7 @@ def get_config(sector, item):
         return is_got
     else:
         # print "Simple debug: Start to parser %s.%s..." % (sector, item)
-        cf = ConfigParser.ConfigParser()
+        cf = configparser.ConfigParser()
         cf.read(get_ini_path())
         value = cf.get(sector, item)
         _StaticVariable().set_value(sector, item, value)
@@ -72,5 +72,5 @@ class _StaticVariable(object):
 
 
 if __name__ == "__main__":
-    print get_config("selenium", "host")
-    print get_config("selenium", "host")
+    print(get_config("selenium", "host"))
+    print(get_config("selenium", "host"))

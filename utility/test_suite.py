@@ -111,4 +111,4 @@ def get_test_suite(testcase_name):
 
 
 if __name__ == "__main__":
-    print get_testcase("all")
+    print(get_testcase("all"))

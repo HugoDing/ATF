@@ -144,5 +144,5 @@ class MongoDB(object):
 
 if __name__ == "__main__":
     mg = MongoDB()
-    print mg.find_data(module="login_demo", case="ValidLogin")
-    print mg.get_testcases_from_mongo("smoke")
+    print(mg.find_data(module="login_demo", case="ValidLogin"))
+    print(mg.get_testcases_from_mongo("smoke"))

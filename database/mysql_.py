@@ -45,4 +45,4 @@ class MySQL(object):
         try:
             self.cnn = mysql.connector.connect(**self.config)
         except mysql.connector.Error as e:
-            print('connect fails!{}'.format(e))
+            print(('connect fails!{}'.format(e)))

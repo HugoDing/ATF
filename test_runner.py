@@ -26,11 +26,6 @@ __all__ = []
 # V0.1      2014-12-21   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
-import sys
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
 from logging_report.HTMLTestRunner import HTMLTestRunner
 
 from utility.config_parser import get_config
@@ -51,13 +46,13 @@ def execute_test(test_suite):
     print_log("Testcase(s) to run is(are): %s" % test_suite)
 
     result_file = get_test_report_path()
-    fp = file(result_file, 'wb')
+    fp = open(result_file, 'wb')
     runner = HTMLTestRunner(
         stream=fp,
-        title=u"Automation test report",
+        title="Automation test report",
         description=(
-            u"Automation test report\n"
-            u"Execution type is %s" % exec_type
+            "Automation test report\n"
+            "Execution type is %s" % exec_type
         )
     )
 

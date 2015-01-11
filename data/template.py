@@ -54,7 +54,7 @@ testcase_data_driven_template = {
 }
 
 test_suite_template = {
-    "id": 010203,
+    "id": "010203",
     "case": "testcase.web.login_demo.ValidLogin",
     "summary": [],
 }
