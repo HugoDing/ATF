@@ -29,11 +29,13 @@ __all__ = []
 
 import os
 import re
+import sys
 from copy import deepcopy
 from unittest import TestSuite, TestLoader
 
 from system_opration.file_system import get_testcase_dir
 from database.mongo import MongoDB
+from logging_report.logging_ import print_log
 
 
 test_cases = []
@@ -58,15 +60,19 @@ def get_testcase(mode="smoke"):
 
         all_case_module = deepcopy(all_case_files)
 
-        n = 0
         for item in all_case_module:
             for product in item:
                 for case in item[product]:
                     if ".pyc" not in case and "__init__.py" not in case:
                         get_testcase_from_module(product, case)
-            n += 1
 
         return test_cases
+
+    else:
+        print_log("Cannot recognize mode '%s', please take a double check!"
+                  % mode,
+                  "error")
+        sys.exit(-1)
 
 
 def get_testcase_from_module(product_name, module_name):
