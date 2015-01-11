@@ -34,9 +34,10 @@ sys.setdefaultencoding('utf-8')
 from logging_report.HTMLTestRunner import HTMLTestRunner
 
 from utility.config_parser import get_config
-from logging_report.logging_ import print_log
 from utility.test_suite import get_test_suite, get_testcase
+from logging_report.logging_ import print_log
 from system_opration.command_line import get_opt
+from system_opration.file_system import get_test_report_path
 
 
 def execute_test(test_suite):
@@ -49,7 +50,7 @@ def execute_test(test_suite):
 
     print_log("Testcase(s) to run is(are): %s" % test_suite)
 
-    result_file = "D:\\test_result.html"
+    result_file = get_test_report_path()
     fp = file(result_file, 'wb')
     runner = HTMLTestRunner(
         stream=fp,

@@ -32,7 +32,8 @@ import logging
 import os
 
 from utility.config_parser import get_config
-from system_opration.file_system import get_tmp_dir
+from system_opration.file_system import get_log_dir
+from utility.time_parser import get_current_date
 
 
 def _get_num_level(level):
@@ -57,17 +58,18 @@ def print_log(log, level="info"):
     logger.setLevel(logging.DEBUG)
 
     config_path = get_config("logging", "path")
-    log_path = config_path if config_path else get_tmp_dir()
+    log_path = config_path if config_path else get_log_dir()
     if log_path:
-        fh = logging.FileHandler(log_path + os.sep + "log.log")
-        # TODO: Log file name should be more intelligent.
+        fh = logging.FileHandler(
+            log_path + os.sep + "%s.log" % get_current_date()
+        )
         fh.setLevel(int(get_config("logging", "level")))
         fh.setFormatter(formatter)
         if "FileHandler" not in str(logger.handlers):
             logger.addHandler(fh)
 
     ch = logging.StreamHandler()
-    ch.setLevel(logging.DEBUG)
+    ch.setLevel(logging.INFO)
     ch.setFormatter(formatter)
     if "StreamHandler" not in str(logger.handlers):
         logger.addHandler(ch)

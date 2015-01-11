@@ -13,7 +13,7 @@ __authors__ = [
     '"Hugo Ding" <dinghuicong@gmail.com>',
 ]
 
-__version__ = "V0.1"
+__version__ = "V0.2"
 
 __all__ = [
     "testcase_template"
@@ -23,6 +23,7 @@ __all__ = [
 # Version   Date         Description                                   Author
 # ------------------------------------------------------------------------------
 # V0.1      2014-11-23   First version                                 Hugo
+# V0.2      2015-01-10   Add test suite template                       Hugo
 # ------------------------------------------------------------------------------
 
 # If you want to use data driven, "data" should be like this,
@@ -52,7 +53,9 @@ testcase_data_driven_template = {
     }
 }
 
-testsuite_template = {
-    "type": "smoke",
-    "cases": []
+test_suite_template = {
+    "type": "smoke",  # or config
+    "id": 010203,
+    "cases": "testcase.web.login_demo.ValidLogin",
+    "summary": [],
 }

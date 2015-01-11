@@ -24,7 +24,6 @@ __all__ = []
 # ------------------------------------------------------------------------------
 
 import time
-from logging_report.logging_ import print_log
 
 
 def timer(f):
@@ -32,9 +31,17 @@ def timer(f):
         start = time.time()
         result_ = f(*args, **kwargs)
         end = time.time()
-        print_log("Function '%s' took %f second(s)." % (f.__name__, end-start))
+        print("Function '%s' took %f second(s)." % (f.__name__, end-start))
         return result_
     return f_timer
+
+
+def get_current_date():
+    return time.strftime('%Y-%m-%d', time.localtime(time.time()))
+
+
+def get_current_time():
+    return time.strftime('%H:%m:%S', time.localtime(time.time()))
 
 
 if __name__ == '__main__':
@@ -50,3 +57,5 @@ if __name__ == '__main__':
         return 'some result!'
 
     result = expensive_function()
+
+    print get_current_date(), get_current_time()

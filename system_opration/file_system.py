@@ -31,6 +31,8 @@ __all__ = []
 import os
 import platform
 
+from utility.time_parser import get_current_date, get_current_time
+
 
 def _get_workspace_path():
     cur_dir = os.path.dirname(__file__)
@@ -59,9 +61,28 @@ def get_tmp_dir():
         tmp_dir = dir_ + os.sep + "ATF"
         if not os.path.isdir(tmp_dir):
             os.mkdir(tmp_dir)
-        # return log_dir
+        return tmp_dir
     else:
+        print("Failed to get temporary folder!")
         return False
+
+
+def get_test_report_path():
+    report_dir = _get_workspace_path() + \
+        os.sep + "logging_report" + os.sep + "reports"
+    if not os.path.isdir(report_dir):
+        os.mkdir(report_dir)
+    return report_dir + os.sep + "%s_%s.html" \
+                                 % (get_current_date(),
+                                    get_current_time())
+
+
+def get_log_dir():
+    log_dir = _get_workspace_path() + \
+        os.sep + "logging_report" + os.sep + "logs"
+    if not os.path.isdir(log_dir):
+        os.mkdir(log_dir)
+    return log_dir
 
 
 def get_testcase_dir():
