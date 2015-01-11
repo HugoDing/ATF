@@ -33,14 +33,17 @@ from copy import deepcopy
 from unittest import TestSuite, TestLoader
 
 from system_opration.file_system import get_testcase_dir
+from database.mongo import MongoDB
 
 
 test_cases = []
 
 
 def get_testcase(mode="smoke"):
-    if mode == "smoke":
-        pass
+    mode_lower = mode.lower()
+    if mode_lower in ("smoke", "config", "demo"):
+        mongo = MongoDB()
+        everything = mongo.get_testcases_from_mongo(mode_lower)
 
     elif mode == "all":
         global test_cases
@@ -65,9 +68,6 @@ def get_testcase(mode="smoke"):
 
         return test_cases
 
-    elif mode == "config":
-        pass
-
 
 def get_testcase_from_module(product_name, module_name):
     """
@@ -79,18 +79,20 @@ def get_testcase_from_module(product_name, module_name):
     global test_cases
     module_path = get_testcase_dir() + os.sep + product_name + \
         os.sep + module_name
-    f = open(module_path)
-    for line in f.readlines():  # Find all the names of testcase
-        if re.match("^class", line) and "BaseTestCase)" in line:
-            test_cases.append(
-                "testcase.%s.%s.%s"
-                % (
-                    product_name,
-                    module_name[:-3],
-                    re.sub("\(.+\):\n", "", line[6:])
+
+    with open(module_path) as f:
+        for line in f.readlines():  # Find all the names of testcase
+            if re.match("^class", line) and "BaseTestCase)" in line:
+                test_cases.append(
+                    "testcase.%s.%s.%s"
+                    % (
+                        product_name,
+                        module_name[:-3],
+                        re.sub("\(.+\):\n", "", line[6:])
+                    )
                 )
-            )
-    f.close()
+        f.close()
+
     return test_cases
 
 

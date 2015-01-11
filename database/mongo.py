@@ -37,7 +37,7 @@ import copy
 import pymongo
 
 from utility.config_parser import get_config
-from data.template import testcase_template
+from data.template import testcase_template, test_suite_template
 from logging_report.logging_ import print_log
 
 
@@ -91,7 +91,7 @@ class MongoDB(object):
             collection = self._get_collection(type_)
             testcase = copy.deepcopy(testcase_template)
 
-            if project != "velocity":
+            if project != "web":
                 testcase["project"] = project
             testcase["module"] = module
             testcase["case"] = case
@@ -125,12 +125,19 @@ class MongoDB(object):
             return False
 
     def get_testcases_from_mongo(self, type_):
-        collection = self._get_collection("testsuite")
-        return collection.find_one(
-            {"type": type_}
-        )
+        collection = self._get_collection("testsuite.%s" % type_)
+        return dict(collection.find({"case": 1}))
+
+    def add_testcase_to_suite(self, type_, id, case, summary):
+        collection = self._get_collection("testsuite.%s" % type_)
+        template = copy.deepcopy(test_suite_template)
+        template["id"] = id
+        template["case"] = case
+        template["summary"] = summary
+        return collection.insert(template)
 
 
 if __name__ == "__main__":
     mg = MongoDB()
     print mg.find_data(module="login_demo", case="ValidLogin")
+    print mg.get_testcases_from_mongo("smoke")

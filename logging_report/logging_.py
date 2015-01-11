@@ -76,6 +76,9 @@ def print_log(log, level="info"):
 
     logger.log(_get_num_level(level), log)
 
+    if "FileHandler" in str(logger.handlers):
+        fh.close()
+    ch.close()
 
 if __name__ == "__main__":
     print_log('foo bar')

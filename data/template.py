@@ -54,8 +54,7 @@ testcase_data_driven_template = {
 }
 
 test_suite_template = {
-    "type": "smoke",  # or config
     "id": 010203,
-    "cases": "testcase.web.login_demo.ValidLogin",
+    "case": "testcase.web.login_demo.ValidLogin",
     "summary": [],
 }
