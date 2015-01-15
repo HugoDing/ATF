@@ -26,6 +26,7 @@ __all__ = []
 # V0.1      2014-12-21   First version                                 Hugo
 # ------------------------------------------------------------------------------
 
+import sys
 from logging_report.HTMLTestRunner import HTMLTestRunner
 
 from utility.config_parser import get_config
@@ -33,6 +34,8 @@ from utility.test_suite import get_test_suite, get_testcase
 from logging_report.logging_ import print_log
 from system_opration.command_line import get_opt
 from system_opration.file_system import get_test_report_path
+
+sys.dont_write_bytecode = True
 
 
 def execute_test(test_suite):
