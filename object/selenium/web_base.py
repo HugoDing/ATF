@@ -6,7 +6,6 @@ About this module
 Description of classes
 
 Description of methods
-
 """
 
 __authors__ = [

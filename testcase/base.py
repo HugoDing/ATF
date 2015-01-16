@@ -60,9 +60,16 @@ class BaseTestCase(unittest.TestCase):
         module_name = str(self.__module__).split(".")[-1]
         test_case = str(self.__class__.__name__)
         mongo = MongoDB()
-        return mongo.find_data(
+
+        testcase_data = mongo.find_data(
             project=project, module=module_name, case=test_case
         )
+        global_data = mongo.find_data(type_="global", project=project)
+        if global_data:
+            return dict(global_data, **testcase_data)
+        else:
+            print(testcase_data)
+            return testcase_data
 
     def tearDown(self):
         pass

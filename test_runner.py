@@ -27,6 +27,7 @@ __all__ = []
 # ------------------------------------------------------------------------------
 
 import sys
+
 from logging_report.HTMLTestRunner import HTMLTestRunner
 
 from utility.config_parser import get_config
@@ -46,7 +47,12 @@ def execute_test(test_suite):
 
     exec_type = get_config("run-time", "mode")
 
-    print_log("Testcase(s) to run is(are): %s" % test_suite)
+    print_log("="*80, "info")
+    print_log(
+        "Execution started, execution type is %s, "
+        % exec_type
+    )
+    print_log("Testcase(s) to run is(are): \n%s" % str(test_suite))
 
     result_file = get_test_report_path()
     fp = open(result_file, 'wb')

@@ -85,6 +85,7 @@ def get_testcase_from_module(product_name, module_name):
     global test_cases
     module_path = get_testcase_dir() + os.sep + product_name + \
         os.sep + module_name
+    print_log("The path of module to analyze is %s." % module_path, "debug")
 
     with open(module_path) as f:
         for line in f.readlines():  # Find all the names of testcase
@@ -97,7 +98,6 @@ def get_testcase_from_module(product_name, module_name):
                         re.sub("\(.+\):\n", "", line[6:])
                     )
                 )
-        f.close()
 
     return test_cases
 

@@ -37,6 +37,7 @@ class ValidLogin(SeleniumBaseTestCase):
 
     def test_valid_login(self):
         dict_data = self.init_data()
+        print(dict_data)
         bw = BaseWizard(self.driver)
         print_log("Starting to login to the system.")
         bw.login_as(dict_data["login_name"], dict_data["password"])
